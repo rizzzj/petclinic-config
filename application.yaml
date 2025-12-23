@@ -5,17 +5,22 @@ metadata:
   namespace: argocd
 spec:
   project: default
+
   source:
-    repoURL: git@github.com:rizzzj/petclinic-config.git
+    repoURL: https://github.com/rizzzj/petclinic-config.git
     targetRevision: main
-    chart: petclinic
+    path: .                       # Chart.yaml is in the root
     helm:
       valueFiles:
         - values.yaml
+
   destination:
     server: https://kubernetes.default.svc
     namespace: myapp
+
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
