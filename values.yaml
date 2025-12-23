@@ -1,0 +1,11 @@
+namespace: myapp
+replicaCount: 2
+image:
+  repository: dockerhub-username/petclinic
+  tag: 1.0.0
+  pullPolicy: IfNotPresent
+service:
+  type: NodePort       # Changeable: ClusterIP / NodePort / LoadBalancer
+  port: 80
+  nodePort: 30080      # Optional: if empty, Kubernetes assigns a port automatically
+containerPort: 8080
