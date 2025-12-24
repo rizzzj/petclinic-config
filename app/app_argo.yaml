@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/rizzzj/petclinic-config.git
     targetRevision: HEAD
-    path: .                       # Chart.yaml is in the root
+    path: /app
     helm:
       valueFiles:
         - values.yaml

@@ -4,12 +4,9 @@ metadata:
   name: {{ include "petclinic.fullname" . }}
   namespace: {{ .Values.namespace }}
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP
   selector:
     app: {{ include "petclinic.name" . }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.containerPort }}
-      {{- if .Values.service.nodePort }}
-      nodePort: {{ .Values.service.nodePort }}
-      {{- end }}
