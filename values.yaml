@@ -1,7 +1,7 @@
 namespace: myapp
 replicaCount: 2
 image:
-  repository: rizjosel/petclinic
+  repository: rizjosel/spring-petclinic
   tag: 18
   pullPolicy: IfNotPresent
 service:
