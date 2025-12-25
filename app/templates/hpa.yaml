@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "petclinic.fullname" . }}
+  name: {{ include "petclinic.fullname" . }}-hpa
   namespace: {{ .Values.namespace }}
 spec:
   scaleTargetRef:
