@@ -16,7 +16,7 @@ spec:
         app: {{ include "petclinic.name" . }}
     spec:
       containers:
-      - name: {{ include "petclinic.name" . }}
+      - name: {{ include "petclinic.name" . }}-pod
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
