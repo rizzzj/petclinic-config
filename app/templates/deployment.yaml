@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ include "petclinic.name" . }}
+        app: {{ include "petclinic.name" . }}-app
     spec:
       imagePullSecrets:
       - name: dockerhub-secret
