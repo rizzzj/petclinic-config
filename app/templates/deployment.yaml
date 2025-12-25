@@ -9,12 +9,12 @@ spec:
     matchLabels:
       app: {{ include "petclinic.name" . }}
   template:
-    imagePullSecrets:
-      - name: dockerhub-secret
     metadata:
       labels:
         app: {{ include "petclinic.name" . }}
     spec:
+      imagePullSecrets:
+      - name: dockerhub-secret
       containers:
       - name: {{ include "petclinic.name" . }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
