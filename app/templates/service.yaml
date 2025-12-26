@@ -4,7 +4,7 @@ metadata:
   name: {{ include "petclinic.fullname" . }}-svc
   namespace: {{ .Values.namespace }}
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: {{ include "petclinic.fullname" . }}-app
   ports:
