@@ -2,7 +2,7 @@ namespace: myapp
 replicaCount: 2
 image:
   repository: rizjosel/petclinic
-  tag: 31
+  tag: 44
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
