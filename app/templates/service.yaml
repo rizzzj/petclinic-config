@@ -4,7 +4,7 @@ metadata:
   name: {{ include "petclinic.fullname" . }}-svc
   namespace: {{ .Values.namespace }}
 spec:
-  type: {{ Values.service.type }}
+  type: {{ .Values.service.type }}
   selector:
     app: {{ include "petclinic.fullname" . }}-app
   ports:
