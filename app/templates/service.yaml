@@ -8,5 +8,11 @@ spec:
   selector:
     app: {{ include "petclinic.fullname" . }}-app
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.containerPort }}
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: {{ .Values.service.containerPort }}   
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: {{ .Values.service.containerPort }}
