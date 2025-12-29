@@ -2,22 +2,22 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: petclinic-ingress
-  namespace: default
+  namespace: {{ .Values.namespace }} 
   annotations:
-    kubernetes.io/ingress.class: "nginx"  # Replace with your ingress controller if different
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: {{ .Values.ingress.host }} 
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: petclinic-svc
+            name: {{ include "petclinic.fullname" . }}-svc
             port:
               number: 80
   tls:
   - hosts:
-    - petclinic.local
+    - {{ .Values.ingress.host }}
     secretName: petclinic-tls
