@@ -19,5 +19,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - petclinic.example.com
+    - petclinic.local
     secretName: petclinic-tls
