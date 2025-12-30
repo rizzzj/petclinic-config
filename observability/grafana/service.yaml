@@ -4,7 +4,7 @@ metadata:
   name: grafana
   namespace: grafana
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: grafana
   ports:
