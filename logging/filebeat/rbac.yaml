@@ -3,8 +3,6 @@ kind: ServiceAccount
 metadata:
   name: filebeat
   namespace: logging
-  labels:
-    k8s-app: filebeat
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -12,28 +10,8 @@ metadata:
   name: filebeat
 rules:
   - apiGroups: [""]
-    resources:
-      - namespaces
-      - pods
-      - nodes
-    verbs:
-      - get
-      - watch
-      - list
-  - apiGroups: ["apps"]
-    resources:
-      - replicasets
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups: ["batch"]
-    resources:
-      - jobs
-    verbs:
-      - get
-      - list
-      - watch
+    resources: ["namespaces", "pods", "nodes"]
+    verbs: ["get", "watch", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -47,3 +25,4 @@ subjects:
   - kind: ServiceAccount
     name: filebeat
     namespace: logging
+    
