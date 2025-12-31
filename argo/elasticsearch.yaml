@@ -9,11 +9,11 @@ spec:
   source:
     repoURL: https://github.com/rizjosel/petclinic-config.git
     targetRevision: HEAD
-    path: monitoring/grafana
+    path: logging/elasticsearch
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: grafana
+    namespace: logging
 
   syncPolicy:
     automated:
