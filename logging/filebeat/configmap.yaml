@@ -10,11 +10,19 @@ data:
         - type: kubernetes
           hints.enabled: true
 
+    filebeat.modules:
+      - module: system
+        syslog:
+          enabled: true
+        auth:
+          enabled: true
+
     processors:
       - add_kubernetes_metadata: ~
       - add_host_metadata: ~
 
+    setup.kibana:
+      host: "http://kibana:5601"
+
     output.elasticsearch:
-      hosts: ["http://elasticsearch:9200"]
-      username: "admin"
-      password: "admin"
+      hosts: ["${ELASTICSEARCH_HOSTS}"]

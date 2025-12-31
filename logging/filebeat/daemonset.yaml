@@ -32,6 +32,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
+            - name: ELASTICSEARCH_HOSTS
+              value: "http://elasticsearch:9200"
           securityContext:
             runAsUser: 0
           volumeMounts:
@@ -63,3 +65,4 @@ spec:
           hostPath:
             path: /var/lib/filebeat-data
             type: DirectoryOrCreate
+            
