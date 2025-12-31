@@ -12,6 +12,13 @@ spec:
       labels:
         app: filebeat
     spec:
+    tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+      - key: "node.kubernetes.io/memory-pressure"
+        operator: "Exists"
+        effect: "NoSchedule"
       serviceAccountName: filebeat
       terminationGracePeriodSeconds: 30
       hostNetwork: true
