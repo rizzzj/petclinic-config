@@ -14,7 +14,7 @@ spec:
         app: jenkins-server
     spec:
       nodeSelector:
-        kubernetes.io/hostname: node01
+        kubernetes.io/hostname: node02
       securityContext:
         fsGroup: 1000
         runAsUser: 1000
