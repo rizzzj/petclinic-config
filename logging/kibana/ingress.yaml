@@ -5,7 +5,12 @@ metadata:
   namespace: logging
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
+  tls:
+    - hosts:
+        - kibana.local
+      secretName: kibana-tls
   rules:
     - host: kibana.local
       http:

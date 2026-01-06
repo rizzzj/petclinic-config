@@ -5,7 +5,12 @@ metadata:
   namespace: {{ .Values.namespace }}
   annotations:
     kubernetes.io/ingress.class: "nginx" 
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
+  tls:
+    - hosts:
+        - petclinic.local
+      secretName: petclinic-tls
   rules:
     - host: petclinic.local
       http:
