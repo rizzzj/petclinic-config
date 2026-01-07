@@ -4,7 +4,7 @@ metadata:
   name: petclinic-prod
   namespace: argocd
 spec:
-  project: production
+  project: default
 
   source:
     repoURL: https://github.com/rizjosel/petclinic-config.git
