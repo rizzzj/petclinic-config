@@ -1,0 +1,12 @@
+namespace: petclinic-stage
+replicaCount: 2
+image:
+  tag: 44
+ingress:
+  enabled: true
+  host: petclinic-stage.local
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 4
+  cpuUtilization: 70

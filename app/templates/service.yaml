@@ -3,13 +3,14 @@ kind: Service
 metadata:
   name: {{ include "petclinic.fullname" . }}-svc
   namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "petclinic.commonLabels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   selector:
-    app: {{ include "petclinic.fullname" . }}-app
+    {{- include "petclinic.selectorLabels" . | nindent 4 }}
   ports:
     - name: http
       protocol: TCP
-      port: {{ .Values.service.port }} 
-      targetPort: {{ .Values.service.containerPort }}   
-      
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.containerPort }}

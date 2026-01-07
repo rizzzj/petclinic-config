@@ -3,45 +3,45 @@ kind: Deployment
 metadata:
   name: {{ include "petclinic.fullname" . }}-app
   namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "petclinic.commonLabels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "petclinic.name" . }}-app
+      {{- include "petclinic.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: {{ include "petclinic.name" . }}-app
+        {{- include "petclinic.selectorLabels" . | nindent 8 }}
     spec:
+      {{- if .Values.imagePullSecrets }}
       imagePullSecrets:
-      - name: dockerhub-secret
+        {{- range .Values.imagePullSecrets }}
+        - name: {{ . }}
+        {{- end }}
+      {{- end }}
       containers:
-      - name: {{ include "petclinic.name" . }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        ports:
-        - containerPort: {{ .Values.service.containerPort }}
-        resources:
-          requests:
-            cpu: {{ .Values.resources.requests.cpu }}
-            memory: {{ .Values.resources.requests.memory }}
-          limits:
-            cpu: {{ .Values.resources.limits.cpu }}
-            memory: {{ .Values.resources.limits.memory }}
-        livenessProbe:
-          httpGet:
-            path: /actuator/health
-            port: {{ .Values.service.containerPort }}
-          initialDelaySeconds: 60
-          periodSeconds: 10
-          timeoutSeconds: 2
-          failureThreshold: 3
-        readinessProbe:
-          httpGet:
-            path: /actuator/health
-            port: {{ .Values.service.containerPort }}
-          initialDelaySeconds: 30
-          periodSeconds: 5
-          timeoutSeconds: 2
-          failureThreshold: 3
-
+        - name: {{ include "petclinic.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.containerPort }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.service.containerPort }}
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: {{ .Values.service.containerPort }}
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 2
+            failureThreshold: 3

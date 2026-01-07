@@ -1,9 +1,11 @@
-namespace: myapp
-replicaCount: 2
+namespace: petclinic
+replicaCount: 1
 image:
   repository: rizjosel/petclinic
-  tag: 44
+  tag: latest
   pullPolicy: IfNotPresent
+imagePullSecrets:
+  - dockerhub-secret  
 service:
   type: ClusterIP
   port: 80
@@ -16,9 +18,9 @@ resources:
     cpu: "500m"
     memory: "512Mi"
 hpa:
-  minReplicas: 2
-  maxReplicas: 10
-  cpuUtilization: 70
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  cpuUtilization: 80
 ingress:
-  enabled: true
-  host: petclinic.local
+  enabled: false

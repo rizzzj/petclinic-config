@@ -1,0 +1,19 @@
+namespace: petclinic-prod
+replicaCount: 3
+image:
+  tag: 44
+ingress:
+  enabled: true
+  host: petclinic.local
+hpa:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 10
+  cpuUtilization: 60
+resources:
+  requests:
+    cpu: "300m"
+    memory: "512Mi"
+  limits:
+    cpu: "1"
+    memory: "1Gi"

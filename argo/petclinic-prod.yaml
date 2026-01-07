@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: petclinic-prod
+  namespace: argocd
+spec:
+  project: production
+
+  source:
+    repoURL: https://github.com/rizjosel/petclinic-config.git
+    targetRevision: HEAD
+    path: app
+    helm:
+      valueFiles:
+        - env/prod.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: petclinic-prod
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
