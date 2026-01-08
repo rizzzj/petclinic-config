@@ -1,5 +1,5 @@
 module "petclinic_stage" {
-  source = "./modules/argocd-app"
+  source = "./modules"
 
   name                  = "petclinic-stage-app"
   path                  = "app/stage"
