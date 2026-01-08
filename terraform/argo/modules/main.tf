@@ -12,6 +12,7 @@ terraform {
 }
 
 resource "argocd_application" "name" {
+  upsert = true 
   metadata {
     name      = var.name
     namespace = var.namespace
