@@ -8,11 +8,14 @@ data:
     global:
       scrape_interval: 15s
       evaluation_interval: 15s
+
     scrape_configs:
+      # 1. Scrape Prometheus itself
       - job_name: 'prometheus'
         static_configs:
           - targets: ['localhost:9090']
-          
+
+      # 2. Scrape node-exporter
       - job_name: 'node-exporter'
         kubernetes_sd_configs:
           - role: node
@@ -21,3 +24,26 @@ data:
             regex: (.+):10250
             replacement: $1:9100
             target_label: __address__
+
+      # 3. Scrape pod-level metrics via kubelet/cAdvisor
+      - job_name: 'kubernetes-pods-cadvisor'
+        kubernetes_sd_configs:
+          - role: node
+        scheme: https
+        tls_config:
+          insecure_skip_verify: true
+        bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        relabel_configs:
+          # Build metrics path to cAdvisor for each node
+          - source_labels: [__address__]
+            target_label: __metrics_path__
+            replacement: /metrics/cadvisor
+
+
+          # Send requests to Kubernetes API server
+          - target_label: __address__
+            replacement: kubernetes.default.svc:443
+
+          # Keep node labels
+          - action: labelmap
+            regex: __meta_kubernetes_node_label_(.+)
