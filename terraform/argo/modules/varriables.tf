@@ -41,8 +41,3 @@ variable "sync_options" {
     type = list(string) 
     default = ["CreateNamespace=true"] 
 }
-
-variable "env" {
-  description = "Environment name (dev, prod)"
-  type        = string
-}

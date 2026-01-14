@@ -10,11 +10,10 @@ module "petclinic-prod" {
   path                  = "app"
   repo_url              = "https://github.com/rizjosel/petclinic-config.git"
   branch                = "HEAD"
-  destination_namespace = "myapp"
+  destination_namespace = "myapp-prod"
   use_helm              = true
   helm_values           = ["env/prod.yaml"]
 }
-
 
 module "petclinic-dev" {
   source = "./modules"

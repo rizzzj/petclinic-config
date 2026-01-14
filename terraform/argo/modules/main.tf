@@ -1,10 +1,19 @@
-resource "argocd_application" "app" {
-  # Allow Terraform to update existing apps if spec changes
-  upsert = true
+terraform {
+  required_providers {
+    argocd = {
+      source  = "argoproj-labs/argocd"
+      version = "~> 7.12"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 3.0"
+    }
+  }
+}
 
+resource "argocd_application" "name" {
   metadata {
-    # Dynamic, environment-aware app name
-    name      = "${var.name}-${var.env}"
+    name      = var.name
     namespace = var.namespace
   }
 
