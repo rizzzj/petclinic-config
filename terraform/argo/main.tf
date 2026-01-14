@@ -6,7 +6,7 @@ module "petclinic-prod" {
     kubernetes = kubernetes
   }
 
-  name                  = "petclinic"
+  name                  = "petclinic-prod"
   path                  = "app"
   repo_url              = "https://github.com/rizjosel/petclinic-config.git"
   branch                = "HEAD"
@@ -23,7 +23,7 @@ module "petclinic-dev" {
     kubernetes = kubernetes
   }
 
-  name                  = "petclinic"
+  name                  = "petclinic-dev"
   path                  = "app"
   repo_url              = "https://github.com/rizjosel/petclinic-config.git"
   branch                = "HEAD"
