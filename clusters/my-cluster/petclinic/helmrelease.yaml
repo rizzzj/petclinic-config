@@ -7,7 +7,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: ../../../app
+      chart: ../../../../app   # petclinic → my-cluster → clusters → repo root → app/
       sourceRef:
         kind: GitRepository
         name: flux-system
