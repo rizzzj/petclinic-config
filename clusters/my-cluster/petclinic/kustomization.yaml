@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  path: ./              # points to current folder
+  path: ./               # points to folder containing helmrelease.yaml
   prune: true
   sourceRef:
     kind: GitRepository
