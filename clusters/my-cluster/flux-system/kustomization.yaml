@@ -9,13 +9,9 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 5m
-  path: ./            # flux-system folder
+  interval: 10m
+  path: ./clusters/my-cluster
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
-  resources:
-    - gotk-components.yaml
-    - gotk-sync.yaml
-    - ./petclinic-helmrelease.yaml
