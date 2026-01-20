@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: petclinic
+  namespace: myapp-prod
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./app
+      sourceRef:
+        kind: GitRepository
+        name: petclinic-prod
+        namespace: myapp-prod
+  values:
+    namespace: myapp-prod
+    replicaCount: 2
+    image:
+      tag: "44"
+    ingress:
+      enabled: true
+      host: "petclinic-prod.local"
