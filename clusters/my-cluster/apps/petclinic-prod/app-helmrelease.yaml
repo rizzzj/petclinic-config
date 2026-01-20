@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: petclinic
-  namespace: myapp       
+  namespace: myapp-prod      
 spec:
   interval: 5m                 
   chart:
@@ -10,10 +10,10 @@ spec:
       chart: ./app          
       sourceRef:
         kind: GitRepository
-        name: petclinic-dev
+        name: petclinic-prod
         namespace: myapp
   valuesFrom:
     - kind: GitRepository
-      name: petclinic-dev
+      name: petclinic-prod
       path: ./app/env/prod.yaml
 
