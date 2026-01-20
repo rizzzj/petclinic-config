@@ -7,7 +7,7 @@ spec:
   interval: 5m                 
   chart:
     spec:
-      chart: ./app          
+      chart: app          
       sourceRef:
         kind: GitRepository
         name: petclinic-dev
@@ -16,7 +16,7 @@ spec:
     namespace: myapp
     replicaCount: 1
     image:
-      tag: "48"
+      tag: "44"
     ingress:
       enabled: true
       host: "petclinic.local"
