@@ -1,4 +1,4 @@
-module "petclinic" {
+/*module "petclinic" {
   source = "./modules"
 
   providers = {
@@ -13,7 +13,7 @@ module "petclinic" {
   destination_namespace = "myapp"
   use_helm              = true
   helm_values           = ["values.yaml"]
-}
+*/
 
 module "elasticsearch" {
   source = "./modules"
