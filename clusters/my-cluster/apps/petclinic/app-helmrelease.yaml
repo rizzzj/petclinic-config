@@ -16,7 +16,7 @@ spec:
     namespace: myapp
     replicaCount: 1
     image:
-      tag: "44"
+      tag: "48"
     ingress:
       enabled: true
       host: "petclinic.local"
