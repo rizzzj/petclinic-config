@@ -16,7 +16,7 @@ metadata:
   name: petclinic-dev
   namespace: myapp
 spec:
-  interval: 10m
+  interval: 10m0s
   path: ./clusters/my-cluster
   prune: true
   sourceRef:
