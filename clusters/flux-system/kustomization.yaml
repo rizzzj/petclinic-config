@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - gotk-components.yaml
   - gotk-sync.yaml
-  - ../apps/dev
-  - ../apps/staging
-  - ../apps/prod
+  - ../app/dev/petclinic
+  - ../app/stage/petclinic
+  - ../app/prod/petclinic
