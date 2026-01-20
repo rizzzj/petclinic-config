@@ -12,7 +12,7 @@ spec:
         kind: GitRepository
         name: petclinic-dev
         namespace: myapp
-   valuesFrom:
+  valuesFrom:
     - kind: GitRepository
       name: petclinic-dev
       path: ./app/env/prod.yaml
