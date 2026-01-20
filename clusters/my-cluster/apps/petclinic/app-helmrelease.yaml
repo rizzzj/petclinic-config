@@ -7,7 +7,7 @@ spec:
   interval: 5m                 
   chart:
     spec:
-      chart: app          
+      chart: ./app          
       sourceRef:
         kind: GitRepository
         name: petclinic-dev

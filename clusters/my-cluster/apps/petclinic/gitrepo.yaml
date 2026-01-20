@@ -17,7 +17,7 @@ metadata:
   namespace: myapp
 spec:
   interval: 10m
-  path: ./clusters/my-cluster/apps/petclinic
+  path: ./clusters/my-cluster
   prune: true
   sourceRef:
     kind: GitRepository
