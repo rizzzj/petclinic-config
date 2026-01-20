@@ -17,7 +17,7 @@ spec:
     replicaCount: 1
     image:
       tag: "44"
-      ingress:
+    ingress:
       enabled: true
       host: "petclinic.local"
 
