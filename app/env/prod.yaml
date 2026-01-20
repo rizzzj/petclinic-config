@@ -1,7 +1,0 @@
-namespace: myapp-prod
-replicaCount: 2
-image:
-  tag: "44"
-ingress:
-  enabled: true
-  host: "petclinic-prod.local"

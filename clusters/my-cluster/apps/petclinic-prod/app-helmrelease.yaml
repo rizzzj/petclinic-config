@@ -11,9 +11,13 @@ spec:
       sourceRef:
         kind: GitRepository
         name: petclinic-prod
-        namespace: myapp
-  valuesFrom:
-    - kind: GitRepository
-      name: petclinic-prod
-      path: ./app/env/prod.yaml
+        namespace: myapp-prod
+    values:
+      namespace: myapp-prod
+      replicaCount: 2
+      image:
+        tag: "44"
+      ingress:
+        enabled: true
+        host: "petclinic-prod.local"
 
