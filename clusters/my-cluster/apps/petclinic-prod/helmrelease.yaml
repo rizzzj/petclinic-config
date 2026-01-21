@@ -21,4 +21,3 @@ spec:
     ingress:
       enabled: true
       host: petclinic-prod.local
-      path: "/prod"

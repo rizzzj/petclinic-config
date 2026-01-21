@@ -19,7 +19,5 @@ spec:
     hpa:
       minReplicas: 1
     ingress:
-      enabled: true
-      host: petclinic.local
-      path: "/dev"
+      enabled: false
 
