@@ -15,6 +15,7 @@ spec:
   values:
     fullnameOverride: petclinic-dev
     namespace: petclinic-dev
+    replicaCount: 1
     image:
       tag: "44"
     hpa:

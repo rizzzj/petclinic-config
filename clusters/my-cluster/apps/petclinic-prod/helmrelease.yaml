@@ -13,7 +13,9 @@ spec:
         name: flux-system
         namespace: flux-system
   values:
+    fullnameOverride: petclinic-prod
     namespace: petclinic-prod
+    replicaCount: 2
     image:
       tag: "48"
     hpa:
