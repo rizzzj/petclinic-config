@@ -13,6 +13,7 @@ spec:
         name: flux-system
         namespace: flux-system
   values:
+    fullnameOverride: petclinic-dev
     namespace: petclinic-dev
     image:
       tag: "44"
@@ -21,5 +22,4 @@ spec:
     ingress:
       enabled: true
       host: petclinic.local
-    fullnameOverride: petclinic-dev
 
