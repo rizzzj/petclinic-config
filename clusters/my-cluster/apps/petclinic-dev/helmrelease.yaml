@@ -21,4 +21,5 @@ spec:
     ingress:
       enabled: true
       host: petclinic.local
+      path: "/dev"
 
