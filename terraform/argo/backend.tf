@@ -3,7 +3,7 @@ terraform {
     bucket         = "mybucket"
     key            = "argo/app/terraform.tfstate"
     region         = "ap-southeast-1"
-    dynamodb_table = "terraform-locks"
+    use_lockfile   = true
     encrypt        = true
   }
 }

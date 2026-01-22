@@ -22,3 +22,8 @@ provider "argocd" {
 provider "kubernetes" {
   config_path = "~/.kube/config"
 }
+
+provider "aws" {
+  region  = "ap-southeast-1"
+  profile = "cli-user"
+}
