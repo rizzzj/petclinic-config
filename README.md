@@ -19,6 +19,9 @@
 │   │   └── service.yaml
 │   └── values.yaml
 ├── clusters
+│   ├── README.md
+│   ├── images
+│   │   └── flux_reources.png
 │   └── my-cluster
 │       ├── apps
 │       │   ├── kustomization.yaml
@@ -38,6 +41,8 @@
 │           ├── kustomization.yaml
 │           ├── petclinic-dev.yaml
 │           └── petclinic-prod.yaml
+├── images
+│   └── architecture2.png
 ├── logging
 │   ├── elasticsearch
 │   │   ├── deployment.yaml
@@ -70,9 +75,12 @@
 │       └── service.yaml
 └── terraform
     └── argo
+        ├── README.md
+        ├── backend.tf
         ├── main.tf
         ├── modules
         │   ├── main.tf
-        │   └── varriables.tf
-        └── providers.tf
+        │   └── variables.tf
+        ├── providers.tf
+        └── terraform.tfstate
 ```
