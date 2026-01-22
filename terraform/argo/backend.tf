@@ -27,7 +27,7 @@ terraform {
     bucket         = "s3statebackend100524"
     key            = "argo/app/terraform.tfstate"
     region         = "ap-southeast-1"
-    use_lockfile   = true
+    dynamodb_table = "state-lock"
     encrypt        = true
   }
 }
