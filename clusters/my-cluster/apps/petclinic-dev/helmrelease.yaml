@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: petclinic-dev
+  namespace: petclinic-dev
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./app
+      sourceRef:
+        kind: GitRepository
+        name: flux-system
+        namespace: flux-system
+  values:
+    fullnameOverride: petclinic-dev
+    namespace: petclinic-dev
+    replicaCount: 1
+    image:
+      tag: "44"
+    hpa:
+      minReplicas: 1
+    ingress:
+      enabled: true
+      host: petclinic.local

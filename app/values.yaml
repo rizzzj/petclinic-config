@@ -22,3 +22,4 @@ hpa:
 ingress:
   enabled: true
   host: petclinic.local
+  path: "/"
