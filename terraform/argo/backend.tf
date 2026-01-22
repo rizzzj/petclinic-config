@@ -1,3 +1,4 @@
+/*
 resource "aws_s3_bucket" "mybucket"{
   bucket = "s3statebackend100524"
   versioning {
@@ -21,6 +22,7 @@ resource "aws_dynamodb_table" "statelock"{
     type = "S"
   }
 }
+*/
 
 terraform {
   backend "s3" {
