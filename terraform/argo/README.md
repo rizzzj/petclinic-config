@@ -14,4 +14,15 @@
 - Terraform **does not deploy workloads directly**
   - Argo CD remains the single source of truth for Kubernetes state
 
+### Terraform Backend (S3)
+
+- Terraform state is stored in an S3 backend
+- Enables safe, centralized state management
+- Keeps infrastructure reproducible and version-controlled
+
+![image](../../images/terraformstate_s3.png)
+
+![image](../../images/dynamydb_statelock2.png)
+
+
   

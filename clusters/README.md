@@ -7,4 +7,4 @@
 
 
 
-![image](images/flux_reources.png)
+![image](../images/flux_reources.png)
