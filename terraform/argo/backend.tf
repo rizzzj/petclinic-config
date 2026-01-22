@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "mybucket"{
     }
   }
 }
-/*
+
 terraform {
   backend "s3" {
     bucket         = "s3statebackend100524"
@@ -21,4 +21,3 @@ terraform {
     encrypt        = true
   }
 }
-*/
