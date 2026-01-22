@@ -1,4 +1,11 @@
 # petclinic-config 
+
+## Architecture Diagram
+![image](images/architecture2.png)
+
+---
+
+## Repository Structure
 ```
 .
 ├── README.md
